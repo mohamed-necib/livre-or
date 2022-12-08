@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,10 +14,11 @@
 <body>
   <?php include "includes/header.php" ?>
   <main>
-    <h1> HELLO WORLD </h1>
+    <h1> BIENVENUE SUR HELLOWORLD </h1>
   </main>
 
   <?php include "includes/footer.php" ?>
+
 </body>
 
 </html>

@@ -19,8 +19,8 @@
     <ul class="list">
       <li><a href="/../livre-or/index.php">Accueil</a></li>
       <?php if (!isset($_SESSION['login'])) : ?>
-        <li class="signInAncre"><a href="/../livre-or/formulaires.php/#connect">Connexion</a></li>
-        <li class="signUpAncre"><a href="/../livre-or/formulaires.php/#inscription">Inscription</a></li>
+        <li class="signInAncre"><a href="/../livre-or/formulaires.php#connect">Connexion</a></li>
+        <li class="signUpAncre"><a href="/../livre-or/formulaires.php#inscription">Inscription</a></li>
       <?php else : ?>
         <li><a href="/../livre-or/includes/deconnect.php">Deconnexion</a></li>
       <?php endif; ?>
