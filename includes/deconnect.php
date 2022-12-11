@@ -4,10 +4,10 @@
 // Supression de la variable de Session
 session_start();
 
-// if (!isset($_SESSION['login'])) {
-//   header("Location: ../connexion.php");
-//   exit;
-// }
+if (!isset($_SESSION['login'])) {
+  header("Location: ../connexion.php");
+  exit;
+}
 
 $_SESSION = [];
 unset($_SESSION['login']);

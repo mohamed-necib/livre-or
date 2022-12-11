@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
@@ -53,7 +53,7 @@ if (isset($_POST['envoyer'])) {
   <main>
     <div class="wrapper">
 
-      <!-- FORMULAIRE CONNEXION -->
+      <!-- FORMULAIRE Modification de Compte-->
       <?php if (isset($_POST['envoyer'])) {
         echo $login . "<h3>Votre Profil a bien été modifié</h3>";
       } ?>

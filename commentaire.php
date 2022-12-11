@@ -1,6 +1,6 @@
 <?php
 session_start();
-@include './includes/header.php';
+
 @include './includes/bdd.php';
 
 if (!isset($_POST['submit'])) {
@@ -31,8 +31,6 @@ if (isset($_POST['submit'])) {
   //AJOUT DU COMMENTAIRE AVEC LES DONNEES DU USER
   $sql = "INSERT INTO commentaires (commentaire, id_utilisateur, date) VALUES ('$commentaires', '$intID', NOW())";
   $result = mysqli_query($conn, $sql);
-  header("Refresh:2");
-  echo "Votre commentaire a bien été publié";
 }
 ?>
 
@@ -48,16 +46,21 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+  <?php @include './includes/header.php'; ?>
   <main>
     <div class="wrapper">
       <div class="form-wrapper">
-        <h2>Ajouter un commentaire</h2>
-        <div class="formContainer">
-          <form action="" method="post">
-            <textarea name="commentaire" placeholder="Écrire ici..." style="height: 100px" required></textarea>
-            <input type="submit" name="submit" value="Publier votre commentaire">
-          </form>
-        </div>
+        <form action="commentaire.php" method="POST">
+          <h2>Ajouter un commentaire ?</h2>
+          <?php if (isset($_POST['submit'])) {
+            echo "Votre commentaire a bien été publié";
+            header("Refresh:2");
+          } ?>
+          <div class="input-group">
+            <textarea class="textarea" name="commentaire" placeholder="Laisser votre commentaire..."></textarea>
+          </div>
+          <button type="submit" name="submit">Valider</button>
+        </form>
       </div>
     </div>
   </main>

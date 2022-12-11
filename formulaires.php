@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/../livre-or/assets/css/style.css">
+  <link rel="stylesheet" href="/../livre-or-2/assets/css/realStyle.css">
   <title>Page Identification</title>
 </head>
 
@@ -13,6 +13,7 @@
 // <!-- PHP INSCRIPTION --> //
 // INITIATION DE LA VARIABLE DE SESSION
 session_start();
+
 
 // SI L UTILISATEUR EST DEJA LOGGED ALORS IL EST REORIENTE VERS SA PAGE DE PROFIL
 
@@ -60,6 +61,7 @@ if (isset($_POST['inscription'])) {
   $rowCount = mysqli_num_rows($result);
   if ($rowCount > 0) {
     array_push($errors, "</br> Le Login existe déjà");
+    header("Refresh:2");
   }
 
   if (count($errors) > 0) {
@@ -119,6 +121,10 @@ if (isset($_POST['connexion'])) {
   //VERIFICATION DES DONNEES DE L'UTILISATEUR
   if ($user) {
 
+    if ($password != $user['password']) {
+      array_push($successes, "Le mot de passe ne correspond pas");
+    }
+
     if (password_verify($password, $user['password'])) {
 
       $_SESSION['login'] = $login;
@@ -148,7 +154,7 @@ if (isset($_POST['connexion'])) {
 ?>
 
 <body>
-  <?php include "includes/bdd.php" ?>
+
   <?php include "includes/header.php"  ?>
   <main>
     <div class="wrapper">
@@ -216,7 +222,8 @@ if (isset($_POST['connexion'])) {
 
 
 
-  <?php include "includes/footer.php" ?>
+
+  <?php include "./includes/footer.php" ?>
   <script src="/../livre-or/assets/JS/script.js"></script>
 </body>
 
